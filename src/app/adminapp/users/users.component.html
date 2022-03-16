@@ -32,19 +32,23 @@
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-heade> Name </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
     </ng-container>
     <!-- login Column -->
 
     <ng-container matColumnDef="login">
-      <mat-header-cell *matHeaderCellDef> Login </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-heade>
+        Login
+      </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{ element.login }} </mat-cell>
     </ng-container>
 
     <!-- Comment Column -->
     <ng-container matColumnDef="comment">
-      <mat-header-cell *matHeaderCellDef> Comment </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-heade>
+        Comment
+      </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{ element.comment }} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="actions">
@@ -64,4 +68,8 @@
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
   </mat-table>
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20, 100]"
+    [pageSize]="5"
+  ></mat-paginator>
 </div>

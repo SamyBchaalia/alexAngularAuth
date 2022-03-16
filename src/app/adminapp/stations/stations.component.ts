@@ -23,7 +23,6 @@ export class StationsComponent implements OnInit {
 
   ngOnInit(): void {
     this.stationService.getAll().subscribe((data: any) => {
-      console.log(data)
       this.dataSource = new MatTableDataSource<Station>(data);
       this.dataSource.sort;
       this.dataSource.paginator

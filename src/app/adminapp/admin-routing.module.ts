@@ -7,6 +7,7 @@ import { RegisterComponent } from "./register/register.component";
 import { UsersComponent } from "./users/users.component";
 import { StationsComponent } from "./stations/stations.component";
 import { HomeComponent } from "./home/home.component";
+import { AuthguardGuard } from "../auth.guard.service";
 const routes: Routes = [
     {
         path: "login",
@@ -19,6 +20,7 @@ const routes: Routes = [
     {
         path: "",
         component: MainComponent,
+        canActivate: [AuthguardGuard],
         children: [
             { path: 'users', component: UsersComponent },
             { path: 'stations', component: StationsComponent },

@@ -13,6 +13,7 @@ import { UserComponent } from './user/user.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { StationsComponent } from './stations/stations.component';
 import { HomeComponent } from './home/home.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { HomeComponent } from './home/home.component';
     HomeComponent
   ],
   imports: [
-    CommonModule, AdminRoutingModule, MaterialModule, ReactiveFormsModule, HttpClientModule, FormsModule
+    CommonModule, AdminRoutingModule, MaterialModule, ReactiveFormsModule, HttpClientModule, FormsModule, NgbModule
   ]
 })
 export class AdminappModule { }

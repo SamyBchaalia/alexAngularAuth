@@ -7,7 +7,7 @@ import { Station } from "./models/stations.model"
 })
 export class StationsService {
   constructor(private http: HttpClient) { }
-  ROOT_URL = environment.userUrl + "users";
+  ROOT_URL = environment.userUrl + "stations";
   getAll() {
     return this.http.get(this.ROOT_URL);
   }

@@ -34,6 +34,9 @@
 
       <span class="navlinks"></span>
       <a mat-list-item>{{ user.login }}</a>
+      <a mat-list-item
+        ><button (click)="singOut()" mat-raised-button>Sign Out</button></a
+      >
     </mat-toolbar>
     <ng-content></ng-content>
     <!-- Add Content Here -->

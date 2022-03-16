@@ -18,7 +18,7 @@ export class MainComponent implements OnInit {
 
   constructor(private tokenStorage: TokenStorageService, private stationService: StationsService, private dialog: MatDialog) { }
   user: User = this.tokenStorage.getUser();
-  userRoutes: route[] = [{ path: 'aa', name: 'Users' }, { path: 'aa', name: 'Stations' }]
+  userRoutes: route[] = [{ path: 'admin/users', name: 'Users' }, { path: 'admin/stations', name: 'Stations' }]
   @ViewChild(MatSort) sort: MatSort | undefined;
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   displayedColumns = ['id', 'name', 'comment', 'actions'];

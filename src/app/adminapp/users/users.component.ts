@@ -17,8 +17,10 @@ export class UsersComponent implements OnInit {
 
   constructor(private tokenStorage: TokenStorageService, private userService: UsersService, private dialog: MatDialog) { }
   user: User = this.tokenStorage.getUser();
-  @ViewChild(MatSort) sort: MatSort | undefined;
-  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+  @ViewChild(MatSort)
+  sort!: MatSort;
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
   displayedColumns = ['id', 'name', 'comment', 'login', 'actions'];
   dataSource = new MatTableDataSource<User>();
   searchKey: string = '';
@@ -27,8 +29,8 @@ export class UsersComponent implements OnInit {
     this.userService.getAll().subscribe((data: any) => {
       console.log(data)
       this.dataSource = new MatTableDataSource<User>(data);
-      this.dataSource.sort;
-      this.dataSource.paginator
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
     })
 
   }
