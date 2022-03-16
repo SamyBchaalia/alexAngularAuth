@@ -11,6 +11,8 @@ import { StationComponent } from './station/station.component';
 import { UsersComponent } from './users/users.component';
 import { UserComponent } from './user/user.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { StationsComponent } from './stations/stations.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     StationComponent,
     UsersComponent,
     UserComponent,
-    NavbarComponent
+    NavbarComponent,
+    StationsComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule, AdminRoutingModule, MaterialModule, ReactiveFormsModule, HttpClientModule, FormsModule
