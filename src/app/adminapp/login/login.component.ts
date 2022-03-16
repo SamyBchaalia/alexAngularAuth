@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
     login: new FormControl(''),
     password: new FormControl(''),
   });
-
+  spin = false
   error = '';
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router, private http: HttpClient) {
@@ -29,14 +29,16 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
+    this.spin = true;
     const { login, password } = this.form.value
     this.authService.login(login, password).subscribe(
       data => {
-        console.log(data);
+        this.spin = false
         this.tokenStorage.saveToken(data.user_jwt);
         this.reloadPage();
       },
       err => {
+        this.spin = false
         this.error = err.error.error;
         console.log(this.error)
       }

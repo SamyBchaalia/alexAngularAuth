@@ -22,6 +22,8 @@
     </button>
   </mat-form-field>
 </div>
+<mat-spinner *ngIf="spin"></mat-spinner>
+
 <div class="container-table">
   <mat-table #table [dataSource]="dataSource" matSort>
     <!-- id Column -->

@@ -5,6 +5,8 @@
   <mat-icon style="position: relative; right: 1%">close</mat-icon>
 </div>
 <mat-card style="margin-top: 100px">
+  <mat-spinner *ngIf="spin"></mat-spinner>
+
   <mat-card-title>{{ data.action }} User</mat-card-title>
   <mat-card-content>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">

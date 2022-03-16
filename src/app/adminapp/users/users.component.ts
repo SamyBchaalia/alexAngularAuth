@@ -17,6 +17,7 @@ export class UsersComponent implements OnInit {
 
   constructor(private tokenStorage: TokenStorageService, private userService: UsersService, private dialog: MatDialog) { }
   user: User = this.tokenStorage.getUser();
+  spin: boolean = true;
   @ViewChild(MatSort)
   sort!: MatSort;
   @ViewChild(MatPaginator)
@@ -27,10 +28,10 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getAll().subscribe((data: any) => {
-      console.log(data)
       this.dataSource = new MatTableDataSource<User>(data);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
+      this.spin = false;
     })
 
   }
@@ -43,7 +44,11 @@ export class UsersComponent implements OnInit {
   }
 
   removeStation(station: any) {
-    console.log(station)
+    this.spin = true;
+    this.userService.delete(station.id).subscribe((data) => {
+      console.log("success")
+      this.ngOnInit();
+    })
   }
   onCreate() {
     const dialogconfig = new MatDialogConfig();

@@ -14,13 +14,13 @@ import { MatListModule } from '@angular/material/list';
 
 import { MatGridListModule } from '@angular/material/grid-list'
 import { MatFormFieldModule } from "@angular/material/form-field"
-import { MatSnackBarModule } from "@angular/material/snack-bar"
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner"
 import { MatPaginatorModule } from '@angular/material/paginator'
 import { MatSortModule } from "@angular/material/sort"
 
 
 
-const modules = [MatCardModule, MatInputModule, MatButtonModule, MatTableModule, MatIconModule, MatDialogModule, MatSidenavModule, MatToolbarModule, MatFormFieldModule, MatSortModule, MatPaginatorModule, MatGridListModule, MatListModule];
+const modules = [MatCardModule, MatInputModule, MatButtonModule, MatTableModule, MatIconModule, MatDialogModule, MatSidenavModule, MatToolbarModule, MatFormFieldModule, MatSortModule, MatPaginatorModule, MatGridListModule, MatListModule, MatProgressSpinnerModule];
 
 @NgModule({
   imports: modules,

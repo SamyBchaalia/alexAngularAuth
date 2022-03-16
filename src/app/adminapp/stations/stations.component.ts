@@ -19,6 +19,8 @@ export class StationsComponent implements OnInit {
   sort!: MatSort;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
+  spin: boolean = true;
+
   displayedColumns = ['id', 'name', 'comment', 'actions'];
   dataSource = new MatTableDataSource<Station>();
   searchKey: string = '';
@@ -28,6 +30,7 @@ export class StationsComponent implements OnInit {
       this.dataSource = new MatTableDataSource<Station>(data);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
+      this.spin = false;
     })
 
   }
@@ -40,7 +43,10 @@ export class StationsComponent implements OnInit {
   }
 
   removeStation(station: any) {
-    console.log(station)
+    this.spin = true;
+    this.stationService.delete(station.id).subscribe((data) => {
+      this.ngOnInit()
+    })
   }
   onCreate() {
     const dialogconfig = new MatDialogConfig();

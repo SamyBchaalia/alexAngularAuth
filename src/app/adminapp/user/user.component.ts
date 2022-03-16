@@ -19,6 +19,7 @@ export class UserComponent implements OnInit {
 
   });
   error = ''
+  spin = false;
   constructor(@Inject(MAT_DIALOG_DATA) public data: { user: User, action: 'Create' | 'Update' }, private userService: UsersService, public dialogRef: MatDialogRef<UserComponent>) { }
 
   ngOnInit(): void {
@@ -30,6 +31,7 @@ export class UserComponent implements OnInit {
 
   }
   onSubmit() {
+    this.spin = true;
     if (this.data.action == 'Create') {
       this.userService.create({
         name: this.form.value.name, comment: this.form.value.comment, login: this.form.value.login
