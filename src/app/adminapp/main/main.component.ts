@@ -8,6 +8,7 @@ import { MatSort } from "@angular/material/sort"
 import { MatPaginator } from "@angular/material/paginator";
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog'
 import { StationComponent } from '../station/station.component';
+import { route } from 'src/app/models/route.model';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -17,6 +18,7 @@ export class MainComponent implements OnInit {
 
   constructor(private tokenStorage: TokenStorageService, private stationService: StationsService, private dialog: MatDialog) { }
   user: User = this.tokenStorage.getUser();
+  userRoutes: route[] = [{ path: 'aa', name: 'Users' }, { path: 'aa', name: 'Stations' }]
   @ViewChild(MatSort) sort: MatSort | undefined;
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   displayedColumns = ['id', 'name', 'comment', 'actions'];

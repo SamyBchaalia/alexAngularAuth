@@ -1,18 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Station } from "./models/stations.model"
+import { User } from './models/user.model';
+
 @Injectable({
   providedIn: 'root'
 })
-export class StationsService {
+export class UsersService {
   constructor(private http: HttpClient) { }
   ROOT_URL = environment.userUrl + "users";
   getAll() {
     return this.http.get(this.ROOT_URL);
   }
-  create(station: Station) {
-    return this.http.post(this.ROOT_URL, station);
+  create(user: User) {
+    return this.http.post(this.ROOT_URL, user);
   }
   delete(id: number) {
     return this.http.delete(`${this.ROOT_URL}/${id}`)
@@ -20,8 +21,8 @@ export class StationsService {
   getById(id: number) {
     return this.http.get(`${this.ROOT_URL}/${id}`)
   }
-  update(station: Station) {
-    const { name, comment } = station;
-    return this.http.patch(`${this.ROOT_URL}/${station.id}`, { name, comment })
+  update(user: User) {
+    const { name, comment } = user;
+    return this.http.patch(`${this.ROOT_URL}/${user.id}`, { name, comment })
   }
 }

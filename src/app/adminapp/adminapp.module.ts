@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { StationComponent } from './station/station.component';
 import { UsersComponent } from './users/users.component';
 import { UserComponent } from './user/user.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { UserComponent } from './user/user.component';
     RegisterComponent,
     StationComponent,
     UsersComponent,
-    UserComponent
+    UserComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule, AdminRoutingModule, MaterialModule, ReactiveFormsModule, HttpClientModule, FormsModule
