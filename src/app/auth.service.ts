@@ -41,16 +41,18 @@ export class AuthService {
   verify(): void {
     this.http
       .get(
-        AUTH_API + "me",
+        AUTH_API + "/me",
         httpOptions
       )
       .subscribe(
         (data) => {
+          console.log(data)
           this.tokenstorage.saveUser(data);
           this.router.navigateByUrl("/admin/home");
 
         },
         (err) => {
+          console.log(err)
           this.tokenstorage.signOut();
           this.router.navigateByUrl("/admin/login");
         }

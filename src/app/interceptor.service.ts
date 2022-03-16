@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TokenStorageService } from './token-storage.service';
 
@@ -12,11 +12,12 @@ export class JwtInterceptor implements HttpInterceptor {
     // add authorization header with jwt token if available
     let currentUser = this.tokenStorage.getToken();
     if (currentUser) {
-      request = request.clone({
-        setHeaders: {
-          Authorization: `Bearer ${currentUser}`
-        }
+      const headers = new HttpHeaders({
+        "user-jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE0NH0.Z5PqMcc_xbD4aYL-M4x6wRthQ34-DVENnQVX-RYth84",
+        'Content-Type': 'application/json'
+
       });
+      request.clone({ headers })
     }
 
     return next.handle(request);

@@ -37,6 +37,7 @@ export class RegisterComponent implements OnInit {
     this.authService.register(login, password, comment, name).subscribe(
       data => {
         console.log("data", data);
+        this.router.navigateByUrl("admin/login")
       },
       err => {
         this.error = err.error.error;
