@@ -6,12 +6,14 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    MainComponent
+    MainComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule, AdminRoutingModule, MaterialModule, ReactiveFormsModule, HttpClientModule

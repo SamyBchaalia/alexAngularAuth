@@ -5,7 +5,7 @@ import { environment } from "src/environments/environment";
 import { TokenStorageService } from "./token-storage.service";
 import { Router } from "@angular/router";
 
-const AUTH_API = environment.userUrl + "users/";
+const AUTH_API = environment.userUrl + "users";
 
 const httpOptions = {
   headers: new HttpHeaders({ "Content-Type": "application/json" }),
@@ -22,12 +22,12 @@ export class AuthService {
   ) { }
 
   login(login: string, password: string): Observable<any> {
-    return this.http.post("https://piar.meew.me/users/auth", { login, password });
+    return this.http.post(AUTH_API + "/auth", { login, password });
   }
 
   register(name: string, login: string, password: string, comment: string): Observable<any> {
     return this.http.post(
-      AUTH_API + "auth",
+      AUTH_API,
       {
         name,
         login,
