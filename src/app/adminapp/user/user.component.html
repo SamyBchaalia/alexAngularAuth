@@ -4,7 +4,7 @@
 >
   <mat-icon style="position: relative; right: 1%">close</mat-icon>
 </div>
-<mat-card style="margin-top: 100px">
+<mat-card style="margin-top: 40px">
   <mat-spinner *ngIf="spin"></mat-spinner>
 
   <mat-card-title>{{ data.action }} User</mat-card-title>
@@ -30,7 +30,16 @@
           />
         </mat-form-field>
       </p>
-
+      <p *ngIf="data.action == 'Create'">
+        <mat-form-field>
+          <input
+            type="password"
+            matInput
+            placeholder="password"
+            formControlName="password"
+          />
+        </mat-form-field>
+      </p>
       <p>
         <mat-form-field>
           <input

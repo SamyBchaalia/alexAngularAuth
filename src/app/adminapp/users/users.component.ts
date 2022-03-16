@@ -58,12 +58,12 @@ export class UsersComponent implements OnInit {
     dialogconfig.data = { user: { id: null, name: '', comment: '' }, action: 'Create' }
     this.dialog.open(UserComponent, dialogconfig);
   }
-  onEdit(station: any) {
+  onEdit(user: any) {
     const dialogconfig = new MatDialogConfig();
     dialogconfig.autoFocus = true;
     dialogconfig.width = "40%";
-    dialogconfig.height = "70%";
-    dialogconfig.data = { user: { id: station.id, name: station.name, comment: station.comment }, action: 'Edit' }
+    dialogconfig.height = "80%";
+    dialogconfig.data = { user: { id: user.id, name: user.name, comment: user.comment, login: user.login }, action: 'Edit' }
     this.dialog.open(UserComponent, dialogconfig);
   }
 
