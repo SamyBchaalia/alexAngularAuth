@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { TokenStorageService } from "./token-storage.service";
 import { Router } from "@angular/router";
-
+import { User } from "./models/user.model"
 const AUTH_API = environment.userUrl + "users";
 
 const httpOptions = {
@@ -45,9 +45,9 @@ export class AuthService {
         httpOptions
       )
       .subscribe(
-        (data) => {
-          console.log(data)
-          this.tokenstorage.saveUser(data);
+        (data: any) => {
+          const user: User = data;
+          this.tokenstorage.saveUser(user);
           this.router.navigateByUrl("/admin/home");
 
         },

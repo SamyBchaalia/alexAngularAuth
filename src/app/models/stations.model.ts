@@ -1,6 +1,5 @@
-export interface User {
+export interface Station {
     id?: number;
     name: string;
     comment: string;
-    login: number;
 }
