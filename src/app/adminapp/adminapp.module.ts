@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { StationComponent } from './station/station.component';
+import { UsersComponent } from './users/users.component';
+import { UserComponent } from './user/user.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { StationComponent } from './station/station.component';
     LoginComponent,
     MainComponent,
     RegisterComponent,
-    StationComponent
+    StationComponent,
+    UsersComponent,
+    UserComponent
   ],
   imports: [
     CommonModule, AdminRoutingModule, MaterialModule, ReactiveFormsModule, HttpClientModule, FormsModule

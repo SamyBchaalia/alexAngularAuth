@@ -52,12 +52,11 @@ export class MainComponent implements OnInit {
     this.dialog.open(StationComponent, dialogconfig);
   }
   onEdit(station: any) {
-    console.log(station)
     const dialogconfig = new MatDialogConfig();
     dialogconfig.autoFocus = true;
     dialogconfig.width = "40%";
     dialogconfig.height = "70%";
-    dialogconfig.data = { Station: { id: station.id, name: station.name, comment: station.comment }, action: 'Edit' }
+    dialogconfig.data = { station: { id: station.id, name: station.name, comment: station.comment }, action: 'Edit' }
     this.dialog.open(StationComponent, dialogconfig);
   }
 

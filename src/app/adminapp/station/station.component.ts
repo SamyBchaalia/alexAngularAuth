@@ -15,16 +15,29 @@ export class StationComponent implements OnInit {
     comment: new FormControl(''),
   });
   error = ''
-  constructor(@Inject(MAT_DIALOG_DATA) public data: { station: Station, action: 'Create' | 'Update' }, private stationService: StationsService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { station: Station, action: 'Create' | 'Update' }, private stationService: StationsService, public dialogRef: MatDialogRef<StationComponent>) { }
 
   ngOnInit(): void {
-    console.log(this.data.station)
     this.form.controls['id'].setValue(this.data.station.id || null)
     this.form.controls['name'].setValue(this.data.station.name || '')
     this.form.controls['comment'].setValue(this.data.station.comment || '')
 
   }
   onSubmit() {
-    console.log(this.form.value)
+    if (this.data.action == 'Create') {
+      this.stationService.create({ name: this.form.value.name, comment: this.form.value.comment }).subscribe((data) => {
+        window.location.reload();
+
+      })
+    }
+    else {
+      this.stationService.update({ id: this.form.value.id, name: this.form.value.name, comment: this.form.value.comment }).subscribe((data) => {
+        window.location.reload();
+
+      })
+    }
+  }
+  closeModal() {
+    this.dialogRef.close()
   }
 }
