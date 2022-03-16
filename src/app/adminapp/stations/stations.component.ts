@@ -15,8 +15,10 @@ import { StationComponent } from '../station/station.component';
 export class StationsComponent implements OnInit {
 
   constructor(private stationService: StationsService, private dialog: MatDialog) { }
-  @ViewChild(MatSort) sort: MatSort | undefined;
-  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+  @ViewChild(MatSort)
+  sort!: MatSort;
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
   displayedColumns = ['id', 'name', 'comment', 'actions'];
   dataSource = new MatTableDataSource<Station>();
   searchKey: string = '';
@@ -24,8 +26,8 @@ export class StationsComponent implements OnInit {
   ngOnInit(): void {
     this.stationService.getAll().subscribe((data: any) => {
       this.dataSource = new MatTableDataSource<Station>(data);
-      this.dataSource.sort;
-      this.dataSource.paginator
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
     })
 
   }

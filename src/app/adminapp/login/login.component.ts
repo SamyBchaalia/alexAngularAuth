@@ -15,8 +15,7 @@ export class LoginComponent implements OnInit {
     login: new FormControl(''),
     password: new FormControl(''),
   });
-  isLoggedIn = false;
-  isLoginFailed = false;
+
   error = '';
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router, private http: HttpClient) {
@@ -25,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken() != null) {
-      this.authService.verify();
+      this.router.navigateByUrl('admin/home')
     }
   }
 

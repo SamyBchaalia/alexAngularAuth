@@ -24,14 +24,17 @@ const routes: Routes = [
         children: [
             { path: 'users', component: UsersComponent },
             { path: 'stations', component: StationsComponent },
-            { path: '', component: HomeComponent }
+            { path: '', component: HomeComponent },
+            {
+                path: '**',
+                redirectTo: '/admin',
+                pathMatch: 'full'
+            }
+
         ]
     },
-    {
-        path: "users",
-        component: UsersComponent,
-    },
 ]
+
 
 
 @NgModule({

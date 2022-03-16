@@ -48,8 +48,6 @@ export class AuthService {
         (data: any) => {
           const user: User = data;
           this.tokenstorage.saveUser(user);
-          this.router.navigateByUrl("/admin/home");
-
         },
         (err) => {
           console.log(err)
